@@ -7,7 +7,7 @@
     "ccti": "./dist/ccti-ink.js"
   },
   "scripts": {
-    "start": "node ./dist/ccti-ink.js",
+    "start": "node ./bin/ccti.js",
     "ink": "node ./bin/ccti-ink.js",
     "build": "tsup",
     "test": "node --test"
