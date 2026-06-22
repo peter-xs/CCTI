@@ -1,27 +1,282 @@
 export const DIMENSIONS = [
   {
-    key: 'ci',
-    label: '构造 vs 探索',
+    key: 'mindset',
     letters: ['C', 'I'],
-    names: ['构造者 Construct', '探索者 Investigate'],
+    names: ['Construct', 'Investigate'],
+    label: '编程思维方式',
   },
   {
-    key: 'sd',
-    label: '结构 vs 动态',
+    key: 'structure',
     letters: ['S', 'D'],
-    names: ['结构师 Structure', '动态派 Dynamic'],
+    names: ['Structure', 'Dynamic'],
+    label: '代码组织策略',
   },
   {
-    key: 'te',
-    label: '理论 vs 实践',
+    key: 'method',
     letters: ['T', 'E'],
-    names: ['理论派 Theory', '实践派 Empirical'],
+    names: ['Theory', 'Empirical'],
+    label: '问题解决路径',
   },
   {
-    key: 'ao',
-    label: '独行 vs 开源',
+    key: 'collaboration',
     letters: ['A', 'O'],
-    names: ['独行侠 Alone', '开源精神 Open'],
+    names: ['Alone', 'Open'],
+    label: '协作与影响力',
+  },
+];
+
+export const QUESTIONS = [
+  {
+    id: 'q01',
+    dimension: 'mindset',
+    prompt: '接到一个新需求时，你更自然的第一步是？',
+    options: [
+      { letter: 'C', text: '先搭出一个能跑的版本，让问题变得具体。' },
+      { letter: 'I', text: '先追问场景、边界和限制，弄清真正要解决什么。' },
+    ],
+  },
+  {
+    id: 'q02',
+    dimension: 'mindset',
+    prompt: '面对陌生代码库，你通常会？',
+    options: [
+      { letter: 'C', text: '从入口开始跑流程，边改边理解。' },
+      { letter: 'I', text: '先读目录、依赖和关键抽象，画出心里的地图。' },
+    ],
+  },
+  {
+    id: 'q03',
+    dimension: 'mindset',
+    prompt: '你更享受哪类工作？',
+    options: [
+      { letter: 'C', text: '把一个想法做成用户真的能用的东西。' },
+      { letter: 'I', text: '拆解复杂问题，找到隐藏的机制和原因。' },
+    ],
+  },
+  {
+    id: 'q04',
+    dimension: 'mindset',
+    prompt: '技术调研时，你更容易被什么吸引？',
+    options: [
+      { letter: 'C', text: '示例代码、模板项目、最快上手路径。' },
+      { letter: 'I', text: '设计理念、权衡分析、实现原理。' },
+    ],
+  },
+  {
+    id: 'q05',
+    dimension: 'mindset',
+    prompt: '当需求还很模糊时，你倾向于？',
+    options: [
+      { letter: 'C', text: '做一个原型，用实际反馈推进讨论。' },
+      { letter: 'I', text: '继续澄清问题，避免做出错误方向的原型。' },
+    ],
+  },
+  {
+    id: 'q06',
+    dimension: 'mindset',
+    prompt: '你对"边写边想"的感受更接近？',
+    options: [
+      { letter: 'C', text: '这是很自然的探索方式。' },
+      { letter: 'I', text: '可以，但最好先知道探索边界。' },
+    ],
+  },
+  {
+    id: 'q07',
+    dimension: 'mindset',
+    prompt: '一次成功的编码体验，对你来说更像？',
+    options: [
+      { letter: 'C', text: '完成一个可见、可交付的功能。' },
+      { letter: 'I', text: '终于理解一个复杂系统为什么这样运转。' },
+    ],
+  },
+  {
+    id: 'q08',
+    dimension: 'structure',
+    prompt: '你看到一个 800 行函数时，第一反应是？',
+    options: [
+      { letter: 'S', text: '拆分职责，让结构重新清楚起来。' },
+      { letter: 'D', text: '先确认当前问题，不急着大范围改动。' },
+    ],
+  },
+  {
+    id: 'q09',
+    dimension: 'structure',
+    prompt: '你更不能忍受哪种项目？',
+    options: [
+      { letter: 'S', text: '能跑，但模块边界混乱。' },
+      { letter: 'D', text: '结构漂亮，但改一个需求处处受限。' },
+    ],
+  },
+  {
+    id: 'q10',
+    dimension: 'structure',
+    prompt: '设计模块时，你更看重？',
+    options: [
+      { letter: 'S', text: '清晰的边界、命名和依赖方向。' },
+      { letter: 'D', text: '适应变化的速度和改动成本。' },
+    ],
+  },
+  {
+    id: 'q11',
+    dimension: 'structure',
+    prompt: '遇到重复代码，你通常会？',
+    options: [
+      { letter: 'S', text: '尽快抽象，避免复制扩散。' },
+      { letter: 'D', text: '先观察变化是否稳定，避免过早抽象。' },
+    ],
+  },
+  {
+    id: 'q12',
+    dimension: 'structure',
+    prompt: '你偏好的项目文档是？',
+    options: [
+      { letter: 'S', text: '架构图、约定、目录职责都比较完整。' },
+      { letter: 'D', text: '短小直接，能帮助快速完成当前任务。' },
+    ],
+  },
+  {
+    id: 'q13',
+    dimension: 'structure',
+    prompt: '当产品方向频繁变化时，你会优先？',
+    options: [
+      { letter: 'S', text: '守住核心模型，避免系统失去形状。' },
+      { letter: 'D', text: '减少承诺，让代码保持可替换、可删除。' },
+    ],
+  },
+  {
+    id: 'q14',
+    dimension: 'structure',
+    prompt: '你对"临时方案"的态度更接近？',
+    options: [
+      { letter: 'S', text: '可以有，但必须标清边界和还债计划。' },
+      { letter: 'D', text: '现实项目需要它，关键是别让它变成永久方案。' },
+    ],
+  },
+  {
+    id: 'q15',
+    dimension: 'method',
+    prompt: '排查线上问题时，你更常用？',
+    options: [
+      { letter: 'T', text: '先建立假设，再按因果链验证。' },
+      { letter: 'E', text: '先看日志、指标和复现路径，让数据说话。' },
+    ],
+  },
+  {
+    id: 'q16',
+    dimension: 'method',
+    prompt: '学习新技术时，你倾向于？',
+    options: [
+      { letter: 'T', text: '先理解核心概念和设计模型。' },
+      { letter: 'E', text: '先写 demo，踩过坑再回头补理论。' },
+    ],
+  },
+  {
+    id: 'q17',
+    dimension: 'method',
+    prompt: '代码评审里，你更容易指出？',
+    options: [
+      { letter: 'T', text: '抽象不一致、边界不合理、概念混用。' },
+      { letter: 'E', text: '异常没处理、测试不够、场景没覆盖。' },
+    ],
+  },
+  {
+    id: 'q18',
+    dimension: 'method',
+    prompt: '技术选型时，你更相信？',
+    options: [
+      { letter: 'T', text: '原则、模型和长期演进空间。' },
+      { letter: 'E', text: '社区成熟度、性能数据和团队经验。' },
+    ],
+  },
+  {
+    id: 'q19',
+    dimension: 'method',
+    prompt: '你写测试时更在意？',
+    options: [
+      { letter: 'T', text: '测试能表达设计意图和不变量。' },
+      { letter: 'E', text: '测试能覆盖真实事故和关键路径。' },
+    ],
+  },
+  {
+    id: 'q20',
+    dimension: 'method',
+    prompt: '当直觉和数据冲突时，你更可能？',
+    options: [
+      { letter: 'T', text: '重新检查数据是否反映了正确问题。' },
+      { letter: 'E', text: '先尊重数据，再调整自己的判断。' },
+    ],
+  },
+  {
+    id: 'q21',
+    dimension: 'method',
+    prompt: '你更喜欢哪种技术文章？',
+    options: [
+      { letter: 'T', text: '把一个系统设计讲透的长文。' },
+      { letter: 'E', text: '有代码、有 benchmark、有踩坑记录的实战文。' },
+    ],
+  },
+  {
+    id: 'q22',
+    dimension: 'collaboration',
+    prompt: '进入深度编码状态时，你更需要？',
+    options: [
+      { letter: 'A', text: '完整安静的时间块，少一点打断。' },
+      { letter: 'O', text: '及时交流，避免方向跑偏。' },
+    ],
+  },
+  {
+    id: 'q23',
+    dimension: 'collaboration',
+    prompt: '你更愿意如何影响团队？',
+    options: [
+      { letter: 'A', text: '用高质量代码和稳定交付建立信任。' },
+      { letter: 'O', text: '通过讨论、分享和工具推动大家一起变好。' },
+    ],
+  },
+  {
+    id: 'q24',
+    dimension: 'collaboration',
+    prompt: '遇到棘手技术分歧时，你倾向于？',
+    options: [
+      { letter: 'A', text: '先独立做足分析，再拿结论讨论。' },
+      { letter: 'O', text: '尽早拉齐上下文，让大家一起收敛。' },
+    ],
+  },
+  {
+    id: 'q25',
+    dimension: 'collaboration',
+    prompt: '你对开源项目的兴趣更像？',
+    options: [
+      { letter: 'A', text: '需要时会读源码、提 issue 或修 bug。' },
+      { letter: 'O', text: '愿意持续参与社区、维护项目或写文档。' },
+    ],
+  },
+  {
+    id: 'q26',
+    dimension: 'collaboration',
+    prompt: '在团队知识沉淀上，你更自然的做法是？',
+    options: [
+      { letter: 'A', text: '把关键逻辑写进代码、测试和清晰命名里。' },
+      { letter: 'O', text: '主动写文档、做分享、建立协作约定。' },
+    ],
+  },
+  {
+    id: 'q27',
+    dimension: 'collaboration',
+    prompt: '当新人接手你的模块时，你希望他们主要依靠？',
+    options: [
+      { letter: 'A', text: '代码结构本身足够可读。' },
+      { letter: 'O', text: 'README、示例和我留下的上下文说明。' },
+    ],
+  },
+  {
+    id: 'q28',
+    dimension: 'collaboration',
+    prompt: '你理想中的一天更接近？',
+    options: [
+      { letter: 'A', text: '少会、少消息，专注把核心问题解决掉。' },
+      { letter: 'O', text: '编码、评审、讨论、分享之间节奏均衡。' },
+    ],
   },
 ];
 
@@ -29,487 +284,113 @@ export const TYPES = {
   CSTA: {
     name: '架构建造师',
     title: 'The System Architect',
-    summary: '你喜欢先设计完整的架构，再一丝不苟地实现。代码是艺术品，结构是信仰。',
-    strengths: [
-      '系统化思考，能构建稳定的整体结构',
-      '关注可维护性和可扩展性',
-      '擅长编写文档和清晰的接口定义',
-    ],
-    risks: [
-      '可能过度设计，导致早期进展较慢',
-      '对快速变化和不确定性适应较慢',
-    ],
+    summary: '你擅长把复杂想法落成稳定结构，喜欢让系统有清楚的骨架。',
+    strengths: ['能把抽象落到工程实现', '重视边界和长期维护', '适合搭建核心模块'],
+    risks: ['可能低估探索阶段的混乱价值', '容易在早期投入过多结构成本'],
   },
   CSTO: {
-    name: '社区架构师',
-    title: 'The Community Architect',
-    summary: '你既能设计严谨的系统，也乐于在团队中分享和推动最佳实践。',
-    strengths: [
-      '技术与协作能力兼具',
-      '善于将复杂概念传达给团队',
-      '推动代码规范和流程落地',
-    ],
-    risks: [
-      '容易在帮助他人和自己深度工作之间失衡',
-      '可能过于关注流程而影响速度',
-    ],
+    name: '技术布道建造师',
+    title: 'The Architecture Advocate',
+    summary: '你能把系统设计讲清楚，也能带着团队一起把它做出来。',
+    strengths: ['擅长对齐技术共识', '能输出规范和最佳实践', '适合平台、基础设施和技术领导角色'],
+    risks: ['讨论和共识成本可能偏高', '容易把个人标准推广得过快'],
+  },
+  CSEA: {
+    name: '可靠交付者',
+    title: 'The Reliable Shipper',
+    summary: '你关注可运行、可验证、可维护的交付结果，是项目里的稳定推进力量。',
+    strengths: ['交付意识强', '能平衡质量与现实约束', '重视测试和反馈'],
+    risks: ['可能对外部协作投入不足', '容易把复杂问题压在自己身上'],
+  },
+  CSEO: {
+    name: '产品工程师',
+    title: 'The Product Engineer',
+    summary: '你善于把用户问题变成可落地方案，并通过协作持续改善体验。',
+    strengths: ['产品感和工程感兼具', '适合跨职能合作', '能快速把反馈转成改进'],
+    risks: ['可能被协作上下文切碎专注力', '容易为了推进而接受过多需求变化'],
   },
   CDTA: {
-    name: '完美主义者',
-    title: 'The Perfectionist',
-    summary: '你对代码质量有极高追求，喜欢精雕细琢，独立工作时产出最优质代码。',
-    strengths: [
-      '代码质量极高，注重细节',
-      '独立完成任务能力强',
-      '对技术选型有严谨的判断',
-    ],
-    risks: [
-      '可能因追求完美而拖延交付',
-      '对不完美的代码容忍度低',
-    ],
+    name: '完美主义工匠',
+    title: 'The Precise Craftsperson',
+    summary: '你追求代码概念清晰，同时保留实现弹性，常能写出干净而不笨重的方案。',
+    strengths: ['抽象判断敏锐', '能控制复杂度', '适合重构和核心库设计'],
+    risks: ['可能对"不够优雅"的方案耐心较低', '容易延后交付来追求更好的形态'],
   },
   CDTO: {
-    name: '快速交付师',
-    title: 'The Rapid Deliverer',
-    summary: '你灵活高效，能快速交付可用方案，同时保持对质量的关注。',
-    strengths: [
-      '快速迭代，响应需求变化',
-      '能在压力下保持效率',
-      '善于在有限资源下做取舍',
-    ],
-    risks: [
-      '可能为了速度牺牲长期可维护性',
-      '对规范和文档重视不足',
-    ],
+    name: '框架创造者',
+    title: 'The Framework Maker',
+    summary: '你喜欢创建可复用工具和模式，并让更多人用更好的方式工作。',
+    strengths: ['善于沉淀工具链', '能把个人经验变成团队资产', '适合 DX 和平台工程'],
+    risks: ['可能构建超过当前需求的能力', '需要警惕工具维护成本'],
   },
-  CETA: {
-    name: '理论学家',
-    title: 'The Theorist',
-    summary: '你深入理解计算机科学原理，喜欢用逻辑和理论解决问题。',
-    strengths: [
-      '理论基础扎实',
-      '善于从根本上分析和解决问题',
-      '对算法和复杂系统有深刻理解',
-    ],
-    risks: [
-      '可能过于关注正确性而忽视实用性',
-      '对快速原型和实践验证兴趣较低',
-    ],
+  CDEA: {
+    name: '快速实现者',
+    title: 'The Practical Builder',
+    summary: '你重视真实反馈和灵活实现，擅长在不确定中快速推进。',
+    strengths: ['上手快、行动快', '能在变化中保持产出', '适合 MVP 和业务迭代'],
+    risks: ['可能留下后续整理压力', '需要主动记录关键决策'],
   },
-  CETO: {
-    name: '技术导师',
-    title: 'The Technical Mentor',
-    summary: '你理论深厚且善于表达，喜欢写技术文章和教导他人。',
-    strengths: [
-      '擅长将复杂知识简单化',
-      '技术文章和演讲能力强',
-      '是团队中的知识传播者',
-    ],
-    risks: [
-      '教学和写作可能占用大量编码时间',
-      '有时过于理想化',
-    ],
-  },
-  CEDA: {
-    name: '实验工程师',
-    title: 'The Experimental Engineer',
-    summary: '你通过实验验证想法，独立探索新技术，追求最佳实践。',
-    strengths: [
-      '动手能力强，善于验证假设',
-      '对新工具和框架接受度高',
-      '能快速适应变化',
-    ],
-    risks: [
-      '可能频繁切换技术栈',
-      '实验成果未必能沉淀为规范',
-    ],
-  },
-  CEDO: {
-    name: '开源先驱者',
-    title: 'The Open Source Pioneer',
-    summary: '你实验精神十足，积极为开源社区贡献，用实践证明一切。',
-    strengths: [
-      '开源贡献积极',
-      '善于将实验转化为社区价值',
-      '影响力和行动力兼具',
-    ],
-    risks: [
-      '可能同时参与太多项目导致精力分散',
-      '对稳定维护的长期承诺不足',
-    ],
+  CDEO: {
+    name: '创业开发者',
+    title: 'The Startup Engineer',
+    summary: '你能一边探索一边交付，还能借助协作把想法推向真实用户。',
+    strengths: ['适应变化能力强', '沟通和实现都在线', '适合早期产品和增长实验'],
+    risks: ['容易同时打开太多战线', '需要定期收束技术债'],
   },
   ISTA: {
-    name: '独立探索者',
-    title: 'The Independent Explorer',
-    summary: '你独立探索新技术，严谨地将它们整合到规范的系统中。',
-    strengths: [
-      '自主学习能力极强',
-      '能在探索与规范之间找到平衡',
-      '适合攻坚创新项目',
-    ],
-    risks: [
-      '可能过于独立，协作沟通不足',
-      '探索方向需要外部对齐',
-    ],
+    name: '系统研究员',
+    title: 'The System Researcher',
+    summary: '你喜欢把系统想透，再用稳固结构表达理解。',
+    strengths: ['理解深、判断稳', '适合复杂领域建模', '能发现隐藏风险'],
+    risks: ['可能启动较慢', '需要用小步验证防止过度分析'],
   },
   ISTO: {
-    name: '开源探索者',
-    title: 'The Open Source Explorer',
-    summary: '你热衷于尝试新技术并与社区分享，是新技术的早期采用者。',
-    strengths: [
-      '对新技术敏感',
-      '乐于分享和传播',
-      '能带动团队技术进步',
-    ],
-    risks: [
-      '可能追逐潮流而忽略稳定性',
-      '对成熟技术的深耕不足',
-    ],
+    name: '架构导师',
+    title: 'The Architecture Mentor',
+    summary: '你擅长理解复杂系统，并把这种理解转化成团队可共享的知识。',
+    strengths: ['能做深度技术拆解', '适合带教和技术方案评审', '善于建立共同语言'],
+    risks: ['可能讲得比做得多', '需要留意不同经验层同学的吸收成本'],
+  },
+  ISEA: {
+    name: '故障侦探',
+    title: 'The Incident Detective',
+    summary: '你冷静、细致、证据导向，擅长从现象追到根因。',
+    strengths: ['排障能力强', '重视数据和复现', '适合稳定性、性能和安全方向'],
+    risks: ['可能过度偏向问题分析', '容易忽略对外同步'],
+  },
+  ISEO: {
+    name: '开放诊断师',
+    title: 'The Open Debugger',
+    summary: '你能把复杂问题查清楚，也愿意把过程透明化，帮助团队一起升级。',
+    strengths: ['擅长协同排障', '能沉淀事故复盘', '适合 SRE、支持复杂系统的角色'],
+    risks: ['容易被各种求助打断', '需要保护深度分析时间'],
   },
   IDTA: {
-    name: '快速原型师',
-    title: 'The Rapid Prototyper',
-    summary: '你能用最快的速度把想法变成可运行的原型，独立且高效。',
-    strengths: [
-      '原型开发速度极快',
-      '善于验证想法可行性',
-      '独立工作能力强',
-    ],
-    risks: [
-      '原型转正时可能缺乏系统思考',
-      '代码可能不够稳健',
-    ],
+    name: '模型探索者',
+    title: 'The Concept Explorer',
+    summary: '你喜欢探索问题空间，找到轻巧但有理论支撑的解法。',
+    strengths: ['概念敏感度高', '适合算法、语言、框架内核等方向', '能提出新视角'],
+    risks: ['可能不够关注落地细节', '需要更频繁地交付中间成果'],
   },
   IDTO: {
-    name: '创业开发者',
-    title: 'The Startup Developer',
-    summary: '你极快速度的原型开发者，善于将想法快速转化为产品。',
-    strengths: [
-      '快速验证商业模式',
-      '全栈能力强',
-      '适应不确定性',
-    ],
-    risks: [
-      '长期可维护性可能被忽视',
-      '容易技术债累积',
-    ],
+    name: '开源思想家',
+    title: 'The Open Source Thinker',
+    summary: '你享受探索新范式，并通过社区交流让想法成长。',
+    strengths: ['适合开源、研究型工具和技术内容', '能连接不同思路', '表达和抽象能力强'],
+    risks: ['可能被新想法分散注意力', '需要明确项目边界'],
   },
-  IETA: {
-    name: '研究员',
-    title: 'The Researcher',
-    summary: '你对新技术充满好奇，深入研究原理，独立探索未知领域。',
-    strengths: [
-      '研究能力强',
-      '善于发现新技术潜力',
-      '独立思考深入',
-    ],
-    risks: [
-      '研究周期可能较长',
-      '成果落地需要团队支持',
-    ],
+  IDEA: {
+    name: '实验修行者',
+    title: 'The Quiet Experimenter',
+    summary: '你通过实验理解世界，喜欢独立验证、逐步逼近答案。',
+    strengths: ['实验设计扎实', '能耐心处理不确定问题', '适合性能调优和原型验证'],
+    risks: ['可能沉浸在局部实验里', '需要主动暴露进展和结论'],
   },
-  IETO: {
-    name: '技术传播者',
-    title: 'The Technology Evangelist',
-    summary: '你热爱探索新技术并热衷于将它们传播给更多人。',
-    strengths: [
-      '学习能力强',
-      '表达能力突出',
-      '能推动技术普及',
-    ],
-    risks: [
-      '可能涉猎广而不深',
-      '容易成为“新技术布道者”而忽视落地',
-    ],
-  },
-  IEDA: {
-    name: '黑客验证师',
-    title: 'The Hacker Validator',
-    summary: '你通过不断实验验证假设，独立解决复杂技术挑战。',
-    strengths: [
-      '动手解决复杂问题',
-      '善于从实践中学习',
-      '独立攻关能力强',
-    ],
-    risks: [
-      '可能忽视文档和测试',
-      '方法可能过于激进',
-    ],
-  },
-  IEDO: {
+  IDEO: {
     name: '开源创客',
-    title: 'The Open Source Maker',
-    summary: '你是实验室里的创客，热衷于开源项目和快速原型开发。',
-    strengths: [
-      '创新能力突出',
-      '开源贡献积极',
-      '善于将创意落地',
-    ],
-    risks: [
-      '项目多而精力分散',
-      '对长期维护可能缺乏耐心',
-    ],
+    title: 'The Community Maker',
+    summary: '你喜欢探索、试验和分享，经常把小想法做成别人也能使用的东西。',
+    strengths: ['创造力强', '乐于分享', '适合工具、插件、社区项目和技术内容'],
+    risks: ['容易开新坑', '需要维护节奏和长期承诺'],
   },
 };
-
-export const QUESTIONS = [
-  // C vs I: 7 questions
-  {
-    id: 1,
-    dimension: 'ci',
-    prompt: '接到一个新项目需求时，你通常会：',
-    options: [
-      { letter: 'C', text: '先花几小时画出完整的架构图和数据流图，确保方案可行再动手' },
-      { letter: 'I', text: '先写一个最简单的原型跑起来，在实际运行中调整设计' },
-    ],
-  },
-  {
-    id: 2,
-    dimension: 'ci',
-    prompt: '在技术选型时，你更倾向于：',
-    options: [
-      { letter: 'C', text: '选择经过充分验证、生态成熟、文档完善的技术栈' },
-      { letter: 'I', text: '尝试新兴的、有趣的、可能带来突破的技术' },
-    ],
-  },
-  {
-    id: 3,
-    dimension: 'ci',
-    prompt: '面对一个复杂功能，你开始实现的方式是：',
-    options: [
-      { letter: 'C', text: '拆分成模块，定义好接口和数据结构，再逐步实现' },
-      { letter: 'I', text: '先写一版能跑通的代码，再重构优化' },
-    ],
-  },
-  {
-    id: 4,
-    dimension: 'ci',
-    prompt: '你的代码风格更接近：',
-    options: [
-      { letter: 'C', text: '每一行都有明确目的，结构清晰，像盖楼一样严谨' },
-      { letter: 'I', text: '灵活多变，喜欢尝试不同写法来找到最佳表达' },
-    ],
-  },
-  {
-    id: 5,
-    dimension: 'ci',
-    prompt: '当项目需要引入第三方库时，你更看重：',
-    options: [
-      { letter: 'C', text: '稳定性、维护状态、社区口碑和长期支持' },
-      { letter: 'I', text: '创新性、简洁性、是否解决了我当前的痛点' },
-    ],
-  },
-  {
-    id: 6,
-    dimension: 'ci',
-    prompt: '你更喜欢的工作节奏是：',
-    options: [
-      { letter: 'C', text: '有计划地推进，每个阶段都有明确产出和检查点' },
-      { letter: 'I', text: '边做边探索，根据反馈随时调整方向' },
-    ],
-  },
-  {
-    id: 7,
-    dimension: 'ci',
-    prompt: '对于代码中的不确定部分，你会：',
-    options: [
-      { letter: 'C', text: '先想清楚边界条件和处理逻辑，再写代码' },
-      { letter: 'I', text: '先写一版测试效果，遇到问题再补逻辑' },
-    ],
-  },
-
-  // S vs D: 7 questions
-  {
-    id: 8,
-    dimension: 'sd',
-    prompt: '你的代码风格更接近：',
-    options: [
-      { letter: 'S', text: '每个函数都有清晰的 JSDoc，变量命名遵循严格的命名规范' },
-      { letter: 'D', text: '变量名有时叫 foo、bar、temp，但代码能跑就行' },
-    ],
-  },
-  {
-    id: 9,
-    dimension: 'sd',
-    prompt: '你更喜欢哪种类型系统：',
-    options: [
-      { letter: 'S', text: '完整的类型系统，编译期捕获所有错误' },
-      { letter: 'D', text: '动态类型，快速开发，必要时再补类型' },
-    ],
-  },
-  {
-    id: 10,
-    dimension: 'sd',
-    prompt: '项目目录结构对你来说：',
-    options: [
-      { letter: 'S', text: '必须严格统一，文件命名和层级关系一目了然' },
-      { letter: 'D', text: '只要能跑，结构随时调整，不必过早规范' },
-    ],
-  },
-  {
-    id: 11,
-    dimension: 'sd',
-    prompt: '当你需要修改他人代码时：',
-    options: [
-      { letter: 'S', text: '先通读相关模块，确保符合现有规范再修改' },
-      { letter: 'D', text: '找到问题点直接改，改完跑通测试即可' },
-    ],
-  },
-  {
-    id: 12,
-    dimension: 'sd',
-    prompt: '你对待 lint 规则的态度是：',
-    options: [
-      { letter: 'S', text: '严格遵守，甚至主动增加更严格的规则' },
-      { letter: 'D', text: '灵活运用，必要时禁用某些规则' },
-    ],
-  },
-  {
-    id: 13,
-    dimension: 'sd',
-    prompt: '你写单元测试的频率：',
-    options: [
-      { letter: 'S', text: '几乎是 TDD，先写测试再写实现' },
-      { letter: 'D', text: '核心逻辑写测试，其他靠手动验证' },
-    ],
-  },
-  {
-    id: 14,
-    dimension: 'sd',
-    prompt: '面对紧急需求变更，你会：',
-    options: [
-      { letter: 'S', text: '先评估影响范围，调整设计文档再动手' },
-      { letter: 'D', text: '直接改代码，快速响应变化' },
-    ],
-  },
-
-  // T vs E: 7 questions
-  {
-    id: 15,
-    dimension: 'te',
-    prompt: '你的项目出了一个很奇怪的 Bug，你会：',
-    options: [
-      { letter: 'T', text: '从错误日志入手，逐层分析调用链，找到根因后一次性修复' },
-      { letter: 'E', text: '先在关键位置加几个 console.log，看看哪里不对再说' },
-    ],
-  },
-  {
-    id: 16,
-    dimension: 'te',
-    prompt: '学习新技术时，你更喜欢：',
-    options: [
-      { letter: 'T', text: '先读官方文档和原理，理解整体架构再动手' },
-      { letter: 'E', text: '直接看示例代码，边改边学' },
-    ],
-  },
-  {
-    id: 17,
-    dimension: 'te',
-    prompt: '你更信任哪种知识来源：',
-    options: [
-      { letter: 'T', text: '官方文档、论文、经典书籍' },
-      { letter: 'E', text: '实战经验、博客、Stack Overflow' },
-    ],
-  },
-  {
-    id: 18,
-    dimension: 'te',
-    prompt: '在代码评审中，你更关注：',
-    options: [
-      { letter: 'T', text: '设计是否合理、是否有潜在边界问题' },
-      { letter: 'E', text: '功能是否能跑、是否有明显 Bug' },
-    ],
-  },
-  {
-    id: 19,
-    dimension: 'te',
-    prompt: '你写代码前通常会：',
-    options: [
-      { letter: 'T', text: '在脑中或纸上先想清楚逻辑和数据流' },
-      { letter: 'E', text: '打开编辑器直接写，边写边理清思路' },
-    ],
-  },
-  {
-    id: 20,
-    dimension: 'te',
-    prompt: '你如何看待代码注释：',
-    options: [
-      { letter: 'T', text: '重要函数必须有注释，复杂逻辑必须解释为什么' },
-      { letter: 'E', text: '代码自解释即可，注释保持最少' },
-    ],
-  },
-  {
-    id: 21,
-    dimension: 'te',
-    prompt: '遇到性能问题，你会：',
-    options: [
-      { letter: 'T', text: '先分析算法复杂度，找到瓶颈再优化' },
-      { letter: 'E', text: '先做基准测试，尝试几种方案对比效果' },
-    ],
-  },
-
-  // A vs O: 7 questions
-  {
-    id: 22,
-    dimension: 'ao',
-    prompt: '写完一个功能模块后，你更倾向于：',
-    options: [
-      { letter: 'A', text: '自己反复检查确认无误后，再提交给团队' },
-      { letter: 'O', text: '尽早提交 PR，让同事帮忙看看，早期发现问题' },
-    ],
-  },
-  {
-    id: 23,
-    dimension: 'ao',
-    prompt: '你更喜欢的工作方式是：',
-    options: [
-      { letter: 'A', text: '独立开发，戴上耳机沉浸式编码' },
-      { letter: 'O', text: 'Pair Programming，随时交流和 review 代码' },
-    ],
-  },
-  {
-    id: 24,
-    dimension: 'ao',
-    prompt: '对于自己解决不了的问题，你会：',
-    options: [
-      { letter: 'A', text: '先自己研究透彻，实在没办法再求助' },
-      { letter: 'O', text: '快速在团队或社区提问，借助集体智慧' },
-    ],
-  },
-  {
-    id: 25,
-    dimension: 'ao',
-    prompt: '你对开源项目的参与态度：',
-    options: [
-      { letter: 'A', text: '更多使用，深入研究源码，较少主动贡献' },
-      { letter: 'O', text: '积极提交 issue 和 PR，参与社区讨论' },
-    ],
-  },
-  {
-    id: 26,
-    dimension: 'ao',
-    prompt: '在团队中，你通常扮演：',
-    options: [
-      { letter: 'A', text: '独立完成任务的核心 contributor' },
-      { letter: 'O', text: '协调沟通、推动协作的 connector' },
-    ],
-  },
-  {
-    id: 27,
-    dimension: 'ao',
-    prompt: '你如何看待代码所有权：',
-    options: [
-      { letter: 'A', text: '每个人都应该对自己模块负责到底' },
-      { letter: 'O', text: '代码是团队的，大家应该互相 review 和改进' },
-    ],
-  },
-  {
-    id: 28,
-    dimension: 'ao',
-    prompt: '工作之余，你更愿意：',
-    options: [
-      { letter: 'A', text: '独自钻研一个感兴趣的技术领域' },
-      { letter: 'O', text: '参加技术 meetup 或写博客分享经验' },
-    ],
-  },
-];
