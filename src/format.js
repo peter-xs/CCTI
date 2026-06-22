@@ -94,19 +94,19 @@ export function formatShareCard(result) {
   const card = `
 ╔══════════════════════════════════════╗
 ║                                      ║
-║          ██████╗██╗  ██╗             ║
+║          ██████╗██║  ██║             ║
 ║         ██╔════╝██║  ██║             ║
 ║         ██║     ███████║             ║
 ║         ██║     ██╔══██║             ║
 ║         ╚██████╗██║  ██║             ║
 ║          ╚═════╝╚═╝  ╚═╝             ║
 ║                                      ║
-║  CCTI - Code Character Type Indicator║
+║  CCTI - Code Character Type Indicator   ║
 ║                                      ║
-║  ${code.padEnd(4)} ${type.name.padEnd(12)}        ║
-║  ${type.title.padEnd(28)}    ║
+║  ${code.padEnd(4)}  ${type.name.padEnd(30)}║
+║  ${type.title.padEnd(34)}  ║
 ║                                      ║
-║  ${dimInfo.padEnd(28)}    ║
+║  ${dimInfo.padEnd(34)}  ║
 ║                                      ║
 ║  npx github:peter-xs/CCTI            ║
 ║                                      ║
