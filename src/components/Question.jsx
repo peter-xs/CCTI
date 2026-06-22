@@ -7,9 +7,20 @@ export default function Question({ question, current, total, onAnswer }) {
 
   useInput((input, key) => {
     if (showResult) return;
-    
+
+    if (key.upArrow || key.downArrow) {
+      if (selected === 'A') {
+        setSelected('B');
+      } else if (selected === 'B') {
+        setSelected('A');
+      } else {
+        setSelected('A');
+      }
+      return;
+    }
+
     const normalized = input.toUpperCase();
-    
+
     if (normalized === 'A' || normalized === '1') {
       setSelected('A');
     } else if (normalized === 'B' || normalized === '2') {
@@ -22,7 +33,6 @@ export default function Question({ question, current, total, onAnswer }) {
     }
   });
 
-  // Progress bar
   const progress = Math.round((current / total) * 100);
   const barWidth = 40;
   const filledWidth = Math.round((current / total) * barWidth);
@@ -31,24 +41,21 @@ export default function Question({ question, current, total, onAnswer }) {
 
   return (
     <Box flexDirection="column" padding={1}>
-      {/* Progress */}
       <Box marginBottom={1}>
         <Text dimColor>
           [{progressBar}] {progress}% ({current}/{total})
         </Text>
       </Box>
-      
-      {/* Question */}
+
       <Box marginBottom={1}>
         <Text bold color="cyan">
           {question.prompt}
         </Text>
       </Box>
-      
-      {/* Options */}
+
       <Box flexDirection="column" marginLeft={2}>
         <Box marginBottom={1}>
-          <Text 
+          <Text
             color={selected === 'A' ? 'green' : 'white'}
             bold={selected === 'A'}
           >
@@ -56,7 +63,7 @@ export default function Question({ question, current, total, onAnswer }) {
           </Text>
         </Box>
         <Box marginBottom={1}>
-          <Text 
+          <Text
             color={selected === 'B' ? 'green' : 'white'}
             bold={selected === 'B'}
           >
@@ -64,24 +71,23 @@ export default function Question({ question, current, total, onAnswer }) {
           </Text>
         </Box>
       </Box>
-      
-      {/* Hint */}
+
       {!selected && (
         <Box marginTop={1}>
           <Text dimColor>
-            输入 A 或 B 选择，按 Enter 确认
+            按 ↑/↓ 选择，A/B 键选择，Enter 确认
           </Text>
         </Box>
       )}
-      
+
       {selected && !showResult && (
         <Box marginTop={1}>
           <Text color="yellow">
-            按 Enter 确认选择
+            按 Enter 确认，↑/↓ 切换选项
           </Text>
         </Box>
       )}
-      
+
       {showResult && (
         <Box marginTop={1}>
           <Text color="green">
