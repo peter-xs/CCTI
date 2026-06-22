@@ -1,11 +1,19 @@
+# Dependencies
 node_modules/
-dist/
+
+# Lock file (optional, can be included)
 package-lock.json
+
+# IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+
+# OS
 .DS_Store
 Thumbs.db
+
+# Logs
 *.log
 npm-debug.log*
