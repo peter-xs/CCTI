@@ -1,26 +1,25 @@
 {
   "name": "ccti",
-  "version": "0.2.0",
-  "description": "Code Character Type Indicator - 程序员代码人格测试",
+  "version": "0.1.0",
+  "description": "Coder Character Type Indicator: an MBTI-style coding personality test for developers.",
   "type": "module",
   "bin": {
-    "ccti": "./bin/ccti.js"
+    "ccti": "./dist/ccti-ink.js"
   },
   "scripts": {
-    "start": "node ./bin/ccti.js",
+    "start": "node ./dist/ccti-ink.js",
     "ink": "node ./bin/ccti-ink.js",
     "build": "tsup",
     "test": "node --test"
   },
   "keywords": [
     "ccti",
-    "mbti",
     "developer",
     "personality-test",
     "cli",
     "npx"
   ],
-  "author": "peter-xs",
+  "author": "",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -45,6 +44,6 @@
   "devDependencies": {
     "esbuild": "^0.28.1",
     "tsup": "^8.5.1",
-    "typescript": "^5.0.0"
+    "typescript": "^6.0.3"
   }
 }
