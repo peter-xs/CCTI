@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Text, useInput } from 'ink';
 
 export default function Question({ question, current, total, onAnswer }) {
   const [selected, setSelected] = useState(null);
   const [showResult, setShowResult] = useState(false);
+
+  // 切换题目时重置状态，确保没有默认选中
+  useEffect(() => {
+    setSelected(null);
+    setShowResult(false);
+  }, [question.id]);
 
   useInput((input, key) => {
     if (showResult) return;
