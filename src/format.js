@@ -92,25 +92,25 @@ export function formatShareCard(result) {
   }).join(' ');
   
   const card = `
-╔══════════════════════════════════════╗
-║                                      ║
-║          ██████╗██║  ██║             ║
-║         ██╔════╝██║  ██║             ║
-║         ██║     ███████║             ║
-║         ██║     ██╔══██║             ║
-║         ╚██████╗██║  ██║             ║
-║          ╚═════╝╚═╝  ╚═╝             ║
-║                                      ║
-║  CCTI - Code Character Type Indicator   ║
-║                                      ║
-║  ${code.padEnd(4)}  ${type.name.padEnd(30)}║
-║  ${type.title.padEnd(34)}  ║
-║                                      ║
-║  ${dimInfo.padEnd(34)}  ║
-║                                      ║
-║  npx github:peter-xs/CCTI            ║
-║                                      ║
-╚══════════════════════════════════════╝
+╔════════════════════════════════════════╗
+║                                        ║
+║           ██████╗██║  ██║              ║
+║          ██╔════╝██║  ██║              ║
+║          ██║     ███████║              ║
+║          ██║     ██╔══██║              ║
+║          ╚██████╗██║  ██║              ║
+║           ╚═════╝╚═╝  ╚═╝              ║
+║                                        ║
+║  CCTI - Code Character Type Indicator  ║
+║                                        ║
+║  ${code.padEnd(4)}  ${type.name.padEnd(32)}║
+║  ${type.title.padEnd(36)}  ║
+║                                        ║
+║  ${dimInfo.padEnd(36)}  ║
+║                                        ║
+║  npx github:peter-xs/CCTI              ║
+║                                        ║
+╚════════════════════════════════════════╝
 `;
 
   const lines = [];
